@@ -19,6 +19,7 @@ a {
 
 .top-header {
   height: 100vh;
+  flex-direction: column;
   background-image: url(img/header_image.jpg);
   background-size: cover;
   background-position-x: 40%;
@@ -26,6 +27,7 @@ a {
   justify-content: center;
   align-items: center;
   color: #fff;
+  position: relative;
 }
 
 .nav-top {
@@ -53,4 +55,40 @@ a {
 .nav-top__link {
   margin-left: 1rem;
   color: #fff;
+}
+
+.nav-top__link:hover {
+  color: #ccc;
+}
+
+.nav-top__title {
+  margin: 0;
+  font-size: 3rem;
+}
+
+.nav-top__subtitle {
+  font-size: 1.5rem;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background-color: hsl(200, 100%, 50%);
+  color: #fff;
+  border-radius: 100000px;
+  padding: 0.25em 1em;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: hsl(200, 100%, 40%);
+}
+
+.nav-top__scroll-down {
+  position: absolute;
+  bottom: 1rem;
+  width: 30px;
+  cursor: pointer;
 }
