@@ -32,6 +32,9 @@ a {
 
 .section__title {
   margin: 0;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .top-header {
@@ -95,6 +98,7 @@ a {
   padding: 0.25em 1em;
   border: none;
   cursor: pointer;
+  font-size: inherit;
 }
 
 .btn:hover,
@@ -109,11 +113,11 @@ a {
   cursor: pointer;
 }
 
-.curriculum__title {
-  margin: 0;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  text-align: center;
+.curriculum {
+  padding-top: 4rem;
+}
+
+.curriculum-title {
   color: #000;
 }
 
@@ -149,4 +153,54 @@ a {
 .banner__subtitle {
   max-width: 300px;
   text-align: center;
+}
+
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form label {
+  color: #000;
+  font-weight: bold;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  outline: none;
+  border: 1px solid #1b2522;
+  border-radius: 0.3em;
+  padding: 0.5em;
+  color: inherit;
+  font-family: inherit;
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 75px;
+  max-height: 200px;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: #0af;
+}
+
+.btn.btn-square {
+  border-radius: 0.3em;
+}
+
+.btn-container {
+  text-align: end;
+}
+
+.footer {
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1b2522;
+  color: #fff;
+  padding: 0.5rem 1rem;
 }

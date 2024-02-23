@@ -23,15 +23,16 @@
       <h1 class="nav-top__title">WDS Bootcamp</h1>
       <span class="nav-top__subtitle">From No Stack To Full Stack</span>
       <a class="btn" href="#">Learn More</a>
-      <img
-        class="nav-top__scroll-down"
-        src="img/arrow_down.svg"
-        alt="Scroll Down icon"
-      />
+      <a href="#curriculum"
+        ><img
+          class="nav-top__scroll-down"
+          src="img/arrow_down.svg"
+          alt="Scroll Down icon"
+      /></a>
     </header>
     <main>
-      <section class="section curriculum">
-        <h2 class="section__title curriculum__title">Curriculum</h2>
+      <section class="section curriculum" id="curriculum">
+        <h2 class="section__title curriculum-title">Curriculum</h2>
         <div class="curriculum__container grid">
           <div class="curriculum__item flex">
             <img src="img/html_icon.svg" alt="HTML 5 icon" />
@@ -83,16 +84,22 @@
       </section>
       <section class="section contact">
         <h2 class="section__title">Contact</h2>
-        <form>
+        <form class="form">
           <label for="name">Name</label
           ><input type="text" name="name" id="name" />
           <label for="email">Email</label
           ><input type="text" name="email" id="email" />
           <label for="message">Message</label
           ><textarea type="text" name="message" id="message"></textarea>
-          <button class="btn">Send</button>
+          <div class="btn-container">
+            <button class="btn btn-square">Send</button>
+          </div>
         </form>
       </section>
     </main>
+    <footer class="footer flex">
+      <p>Web Dev Simplified</p>
+      <p>Powered by Kyle Cook</p>
+    </footer>
   </body>
 </html>
