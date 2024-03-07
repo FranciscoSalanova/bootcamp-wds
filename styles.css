@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: Montserrat, sans-serif;
   color: #1b2522;
 }
 
@@ -139,15 +139,6 @@ a {
 
 .banner {
   background-color: hsl(200, 100%, 50%);
-  color: #fff;
-  flex-direction: column;
-  align-items: center;
-}
-
-.banner__title {
-  margin: 0;
-  font-size: 2.5rem;
-  text-align: center;
 }
 
 .banner__subtitle {
@@ -203,4 +194,38 @@ a {
   background-color: #1b2522;
   color: #fff;
   padding: 0.5rem 1rem;
+}
+
+.pricing-cards-container {
+  justify-content: center;
+}
+
+.pricing-card {
+  padding: 1rem;
+  background-color: #dcf4ff;
+  border: 1px solid black;
+  border-radius: 0.3em;
+  margin: 1rem 0;
+}
+
+.pricing-card.accent {
+  background-color: white;
+  margin: 0;
+}
+
+.pricing-card:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+.pricing-card:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+}
+
+.price-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
