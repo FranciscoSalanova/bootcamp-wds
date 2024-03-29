@@ -6,11 +6,25 @@ body {
   margin: 0;
   font-family: Montserrat, sans-serif;
   color: #1b2522;
+
+  --title-duration: 500ms;
+  --subtitle-duration: 500ms;
+  --nav-duration: 200ms;
+  --btn-grow-duration: 200ms;
+  --scroll-down-duration: 200ms;
+  --subtitle-delay: calc(var(--title-duration) - 200ms);
+  --nav-delay: calc(var(--subtitle-delay) + var(--subtitle-duration));
+  --btn-grow-delay: var(--nav-delay);
+  --scroll-down-delay: var(--nav-delay);
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+h1 {
+  margin: 0;
 }
 
 /* Utility classes */
@@ -48,6 +62,7 @@ a {
   align-items: center;
   color: #fff;
   position: relative;
+  overflow: hidden;
 }
 
 .nav-top {
@@ -60,6 +75,7 @@ a {
   align-items: center;
   background-color: #1b2522;
   padding: 0.5rem 1rem;
+  animation: nav-enter var(--nav-duration) var(--nav-delay) backwards;
 }
 
 .nav-top__logo {
@@ -74,7 +90,8 @@ a {
 
 .nav-top__link {
   margin-left: 1rem;
-  color: #fff;
+  color: white;
+  transition: color 100ms;
 }
 
 .nav-top__link:hover {
@@ -83,12 +100,15 @@ a {
 
 .nav-top__title {
   font-size: 3rem;
+  animation: title-enter var(--title-duration);
 }
 
 .nav-top__subtitle {
   font-size: 1.5rem;
   margin-top: 0.3rem;
   margin-bottom: 1rem;
+  animation: sub-title-enter var(--subtitle-duration) var(--subtitle-delay)
+    backwards;
 }
 
 .btn {
@@ -99,6 +119,7 @@ a {
   border: none;
   cursor: pointer;
   font-size: inherit;
+  transition: 100ms;
 }
 
 .btn:hover,
@@ -106,11 +127,26 @@ a {
   background-color: hsl(200, 100%, 40%);
 }
 
+.btn-grow {
+  animation: btn-grow-enter var(--btn-grow-duration) var(--btn-grow-delay)
+    backwards;
+}
+
+.btn-grow:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px 1px black;
+}
+
 .nav-top__scroll-down {
   position: absolute;
   bottom: 1rem;
   width: 30px;
   cursor: pointer;
+  animation: scroll-down-bounce
+      calc(var(--scroll-down-duration) + var(--scroll-down-delay)) 1s alternate
+      infinite linear,
+    scroll-down-enter var(--scroll-down-duration) var(--scroll-down-delay)
+      backwards;
 }
 
 .curriculum {
@@ -136,6 +172,10 @@ a {
 .curriculum__item img {
   width: 50px;
   margin-right: 1rem;
+}
+
+.curriculum__item:hover img {
+  animation: shake 100ms;
 }
 
 .banner {
@@ -168,6 +208,7 @@ a {
   padding: 0.5em;
   color: inherit;
   font-family: inherit;
+  transition: border-color 100ms;
 }
 
 .form textarea {
@@ -207,6 +248,11 @@ a {
   border: 1px solid black;
   border-radius: 0.3em;
   margin: 1rem 0;
+  transition: transform 100ms;
+}
+
+.pricing-card:hover {
+  transform: scale(1.05);
 }
 
 .pricing-card.accent {
@@ -218,12 +264,14 @@ a {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: none;
+  transform-origin: right;
 }
 
 .pricing-card:last-child {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-left: none;
+  transform-origin: left;
 }
 
 .price-header {
@@ -260,6 +308,52 @@ a {
   margin-bottom: 0;
 }
 
+@keyframes shake {
+  25% {
+    transform: rotate(5deg);
+  }
+
+  75% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes scroll-down-bounce {
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes title-enter {
+  from {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes sub-title-enter {
+  from {
+    transform: translateX(100vh);
+  }
+}
+
+@keyframes nav-enter {
+  from {
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes btn-grow-enter {
+  from {
+    transform: scale(0);
+  }
+}
+
+@keyframes scroll-down-enter {
+  from {
+    transform: scale(0) rotate(180deg);
+  }
+}
+
 @media (max-width: 690px) {
   .pricing-cards-container {
     flex-wrap: wrap;
@@ -276,6 +370,7 @@ a {
   .pricing-card:last-child {
     border: 1px solid black;
     border-radius: 0.3em;
+    transform-origin: center;
   }
 
   .pricing-card:last-child {
